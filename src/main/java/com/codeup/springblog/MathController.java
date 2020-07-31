@@ -16,24 +16,28 @@ public class MathController {
     @ResponseBody
     public String sum(@PathVariable int num1, @PathVariable int num2) {
         return "The sum of " + num1 + " and " + num2 + " equals: " + (num1 + num2);
+//        return String.valueOf(num1 + num2); ----Cleaner use!
     }
 
-    @RequestMapping(path = "/subtract/{num1}/and/{num2}", method = RequestMethod.GET)
+    @RequestMapping(path = "/subtract/{num1}/from/{num2}", method = RequestMethod.GET)
     @ResponseBody
     public String difference(@PathVariable int num1, @PathVariable int num2) {
         return "The difference of " + num1 + " and " + num2 + " equals: " + (num1 - num2);
+        //        return String.valueOf(num1 - num2); ----Cleaner use!
     }
 
     @RequestMapping(path = "/multiply/{num1}/and/{num2}", method = RequestMethod.GET)
     @ResponseBody
     public String product(@PathVariable int num1, @PathVariable int num2) {
         return "The product of " + num1 + " and " + num2 + " equals: " + (num1 * num2);
+        //        return String.valueOf(num1 * num2); ----Cleaner use!
     }
 
     @RequestMapping(path = "/divide/{num1}/and/{num2}", method = RequestMethod.GET)
     @ResponseBody
     public String division(@PathVariable int num1, @PathVariable int num2) {
         return "If you divide " + num1 + " and " + num2 + " it equals: " + (num1 / num2);
+        //        return String.valueOf(num1 / num2); ----Cleaner use!
     }
 
 
