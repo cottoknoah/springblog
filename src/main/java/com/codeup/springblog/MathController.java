@@ -22,7 +22,7 @@ public class MathController {
     @RequestMapping(path = "/subtract/{num1}/from/{num2}", method = RequestMethod.GET)
     @ResponseBody
     public String difference(@PathVariable int num1, @PathVariable int num2) {
-        return "The difference of " + num1 + " and " + num2 + " equals: " + (num1 - num2);
+        return "The difference of " + num2 + " and " + num1 + " equals: " + (num2 - num1);
         //        return String.valueOf(num1 - num2); ----Cleaner use!
     }
 
