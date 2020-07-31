@@ -23,14 +23,14 @@ public class PostController {
 
     @GetMapping("/posts/create")
     @ResponseBody
-    public String postCreateForm() {
+    public String create() {
         return "view the form for creating a post";
     }
 
 //    connect to the first one but differently?
     @PostMapping("/posts/create")
     @ResponseBody
-    public String postCreate() {
+    public String insert() {
         return "create a new post";
     }
 }
