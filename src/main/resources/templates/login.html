@@ -6,21 +6,15 @@
     <title>Login</title>
 </head>
 <body>
-
-<!--<h2>Welcome, <span th:text="${username}"></span></h2>-->
-
-<h3>Login below:</h3>
-<form action="/login" method="post">
+<!-- This form is submitted to PostMapping for "/profile"-->
+<form action="/profile" method="post">
     <label for="username">Username:</label>
     <input type="text" name="username" id="username">
 
     <label for="password">Password:</label>
-    <input type="hidden" name="password" id="password">
+    <input type="text" name="password" id="password">
+
     <button>Submit</button>
 </form>
-
-<h3>Your username is: <span th:text="${username}"></span></h3>
-<h3>Your password is: <span th:text="${password}"></span></h3>
-
 </body>
 </html>
