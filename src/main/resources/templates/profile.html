@@ -7,7 +7,7 @@
 </head>
 
 <!-- replace nav with navbar fragment from navbar.html in partials directory-->
-<nav th:replace= "partials/navbar :: navbar" />
+<nav th:replace= "partials/navbar :: navbar"></nav>
 <body>
 <h1>This is your profile</h1>
 <p>Your username is: <span th:text="${username}"></span></p>
@@ -20,5 +20,5 @@
     </ul>
 </div>
 </body>
-<footer th:replace= "partials/partials :: footer" />
+<footer th:replace= "partials/partials :: footer"></footer>
 </html>

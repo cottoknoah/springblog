@@ -20,6 +20,14 @@ public class PostController {
     public String show(@PathVariable long id) {
         return "view an individual post" + id;
     }
+//    posting views to post URL
+//    do I addAttributes
+    @GetMapping("/posts/{id}/{title}/{body}")
+    @ResponseBody
+    public String show(@PathVariable long id, @PathVariable String title, @PathVariable String body) {
+        return "view an individual post" + id + title + body;
+    }
+
 
     @GetMapping("/posts/create")
     @ResponseBody
