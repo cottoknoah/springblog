@@ -15,13 +15,15 @@ public class PostController {
         return "posts index page";
     }
 
+//    show a post by it's ID
     @GetMapping("/posts/{id}")
     @ResponseBody
     public String show(@PathVariable long id) {
         return "view an individual post" + id;
     }
-//    posting views to post URL
-//    do I addAttributes
+
+//    show post w/ id title or body ?
+//    do I addAttributes here?
     @GetMapping("/posts/{id}/{title}/{body}")
     @ResponseBody
     public String show(@PathVariable long id, @PathVariable String title, @PathVariable String body) {

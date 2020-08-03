@@ -20,7 +20,6 @@ public class RollController {
 //    }
 
 
-
     @PostMapping("/roll-dice/n")
     public  String returnDiceNumber(@RequestParam(name = "roll") String roll, Model model){
         model.addAttribute("roll", roll);
