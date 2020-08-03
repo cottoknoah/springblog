@@ -11,7 +11,7 @@
     <groupId>com.codeup</groupId>
     <artifactId>springblog</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springblog</name>
+    <name>com.codeup.springblog</name>
     <description>Codeup Spring Blog</description>
 
     <properties>
@@ -34,6 +34,16 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-thymeleaf</artifactId>
     </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
 
     <!--added this for reload page-->
 <!--    <dependency>-->
