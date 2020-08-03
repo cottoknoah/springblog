@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gamble</title>
+</head>
+<body>
+
+
+<h3>Roll Dice</h3>
+
+<!--  This form is mapped to "/" and gets handled with a PostMapping  -->
+<form action="/roll-dice" method="GET">
+    <!--   The form submits a dice parameter that gets used in PostMapping   -->
+    <input type="text" name="dice" id="dice">
+    <button>Roll</button>
+</form>
+
+<h3>You rolled a <span th:value="${1}"></span></h3>
+<h3>You rolled a <span th:value="${2}"></span></h3>
+<h3>You rolled a <span th:value="${3}"></span></h3>
+<h3>You rolled a <span th:value="${4}"></span></h3>
+<h3>You rolled a <span th:value="${5}"></span></h3>
+<h3>You rolled a <span th:value="${6}"></span></h3>
+
+
+
+</body>
+</html>
