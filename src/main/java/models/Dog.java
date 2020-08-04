@@ -3,7 +3,7 @@ package models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "dogs")
+@Table(name="dogs")
 public class Dog {
 
     @Id
@@ -23,12 +23,19 @@ public class Dog {
 
     public Dog(){}
 
+    public Dog(int age, String name, String resideState) {
+        this.age = age;
+        this.name = name;
+        this.resideState = resideState;
+    }
+
     public Dog(long id, int age, String name, String resideState) {
         this.id = id;
         this.age = age;
         this.name = name;
         this.resideState = resideState;
     }
+
 
     public long getId() {
         return id;

@@ -45,12 +45,19 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
-    <!--added this for reload page-->
-<!--    <dependency>-->
-<!--        <groupId>org.springframework.boot</groupId>-->
-<!--        <artifactId>spring-boot-devtools</artifactId>-->
-<!--        <scope>runtime</scope>-->
-<!--    </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+
+<!--        added this because IntelliJ told me to-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
 
     </dependencies>
 
@@ -62,6 +69,17 @@
             </plugin>
         </plugins>
     </build>
+
+<!--    <build>-->
+<!--    <plugin>-->
+<!--        <groupId>org.springframework.boot</groupId>-->
+<!--        <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--        <configuration>-->
+<!--            <fork>true</fork>-->
+<!--            <addResources>true</addResources>-->
+<!--        </configuration>-->
+<!--    </plugin>-->
+<!--    </build>-->
 
     <repositories>
         <repository>
@@ -93,22 +111,5 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
-
-<!--    <build>-->
-<!--        ...-->
-<!--        <plugins>-->
-<!--            ...-->
-<!--            <plugin>-->
-<!--                <groupId>org.springframework.boot</groupId>-->
-<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
-<!--                <configuration>-->
-<!--                    <fork>true</fork>-->
-<!--                    <addResources>true</addResources>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-<!--            ...-->
-<!--        </plugins>-->
-<!--        ...-->
-<!--    </build>-->
 
 </project>

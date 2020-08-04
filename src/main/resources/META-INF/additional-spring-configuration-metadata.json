@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "src/main/resources/application.properties",
+      "type": "java.lang.String",
+      "description": "Description for src/main/resources/application.properties."
+  }
+] }
