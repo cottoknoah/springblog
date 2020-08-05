@@ -10,26 +10,36 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class PostController {
 
     // dependency injection
+    //    instance field / instance property
     protected final PostRepository postsDao;
 
     public PostController(PostRepository postsDao) {
         this.postsDao = postsDao;
     }
 
+    //confused
     @GetMapping("/posts")
-    public String index() {
-        ArrayList<Post> myPosts = new ArrayList<>();
-        myPosts.add(new Post(2, "Title 2", "dfknlkdajsdlkajslkajsd"));
-        myPosts.add(new Post(3, "Title 3", "dfknlkdajsdlkajslkajsd"));
-        myPosts.add(new Post(4, "Title 4", "dfknlkdajsdlkajslkajsd"));
-        myPosts.add(new Post(5, "Title 5", "dfknlkdajsdlkajslkajsd"));
-        return "posts/index";
+    public String index(Model model){
+        List<Post> myPost = postsDao.findAll();
+        model.addAttribute("posts", postsDao.findAll());
+            return "posts/index";
     }
+
+//    @GetMapping("/posts")
+//    public String index() {
+//        ArrayList<Post> myPosts = new ArrayList<>();
+//        myPosts.add(new Post(2, "Title 2", "dfknlkdajsdlkajslkajsd"));
+//        myPosts.add(new Post(3, "Title 3", "dfknlkdajsdlkajslkajsd"));
+//        myPosts.add(new Post(4, "Title 4", "dfknlkdajsdlkajslkajsd"));
+//        myPosts.add(new Post(5, "Title 5", "dfknlkdajsdlkajslkajsd"));
+//        return "posts/index";
+//    }
 
 //    show a post by it's ID
     @GetMapping("/posts/{id}")

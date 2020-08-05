@@ -10,4 +10,9 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 //    Implement the edit and delete functionality using forms to
 //    submit these requests using @PostMapping annotations.
 
+
+
+
+
+
 }
