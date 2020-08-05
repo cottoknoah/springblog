@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class PostController {
 
     // dependency injection
-    private final PostRepository postsDao;
+    protected final PostRepository postsDao;
 
     public PostController(PostRepository postsDao) {
         this.postsDao = postsDao;

@@ -3,11 +3,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Partials</title>
+    <title>Navbar</title>
 </head>
 <body>
 <nav th:fragment="navbar">
     <h1>This is your navbar!</h1>
+
+    <nav th:fragment="navbar" class="navbar navbar-light bg-light">
+        <ul>
+            <li class="nav-item"><a class="nav-link" th:href="@{/}">Home</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/posts}">Posts</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/roll-dice}">Roll Dice</a></li>
+        </ul>
+
+
 </nav>
 </body>
 </html>
