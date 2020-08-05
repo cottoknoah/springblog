@@ -56,51 +56,33 @@ public class PostController {
         return "view the form for creating a post";
     }
 
+
+
 //    connect to the first one but differently?
     @PostMapping("/posts/create")
     @ResponseBody
     public String insert() {
         return "create a new post";
     }
+
+
+    @GetMapping("posts/delete/{id}")
+    public String delete(@PathVariable long id){
+        Post deletedPost = new Post(id);
+    }
+
+    @GetMapping("/posts/edit/{id}")
+    @ResponseBody
+    public String edit(@PathVariable long id, Model model) {
+        Post editedPost = new Post(id, "Test Edit", "Hello Edit!");
+        model.addAttribute("title", editedPost.getTitle());
+        model.addAttribute("body", editedPost.getBody());
+        return "redirect:/posts/edit";
+//        where do i go once its edited? back to posts? or show the same one?
+    }
+
+
+
 }
 
-//Instructors work
-//
-//@Controller
-//public class PostController {
-//    @GetMapping("/posts")
-//    public String index(Model model){
-////        creating a list of posts, to be hardcoded in with post records
-//        ArrayList<Post> myPosts = new ArrayList<>();
-//        myPosts.add(new Post(2,"Title 2", "wqeoiruqowieuroiwueroiuqwer"));
-//        myPosts.add(new Post(3,"Title 3", "Ganymeeeeeeeeeeede"));
-//        myPosts.add(new Post(4,"Title 4", "wqeoiruqowieuroiwueroiuqwer"));
-//
-////        sending over the arraylist to iterate through in html
-//        model.addAttribute("posts", myPosts);
-//        return "posts/index";
-//    }
-//
-//    @GetMapping("/posts/{id}")
-//    public String show(@PathVariable long id, Model model){
-////        the PathVariable id gets passed into the constructor
-//        Post myPost = new Post(id,"Test Title","Hello World!");
-//        model.addAttribute("title", myPost.getTitle());
-//        model.addAttribute("body", myPost.getBody());
-//        return "posts/show";
-//    }
-//
-//    @GetMapping("/posts/create")
-//    @ResponseBody
-//    public String create(){
-//        return "Here is the form to create a post!";
-//    }
-//
-//    @PostMapping("/posts/create")
-//    @ResponseBody
-//    public String insert(){
-//        return "Post has been created!";
-//    }
-//
-//
-//}
+
