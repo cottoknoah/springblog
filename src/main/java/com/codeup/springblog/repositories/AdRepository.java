@@ -1,10 +1,7 @@
-package com.codeup.springblog.controllers.repositories;
+package com.codeup.springblog.repositories;
 
-import models.Ad;
-import org.hibernate.mapping.List;
+import com.codeup.springblog.models.Ad;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 
 
 // Ad is the reference type of the entity to CRUD
