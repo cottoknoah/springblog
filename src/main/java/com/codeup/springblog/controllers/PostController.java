@@ -1,6 +1,7 @@
 package com.codeup.springblog.controllers;
 
 import com.codeup.springblog.models.Post;
+import com.codeup.springblog.models.User;
 import com.codeup.springblog.repositories.PostRepository;
 import com.codeup.springblog.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
@@ -16,18 +17,14 @@ public class PostController {
     // dependency injection
     //    instance field / instance property
     protected final PostRepository postsDao;
+    private final UserRepository usersDao;
+    
     //constructor for the above
-    public PostController(PostRepository postsDao) {
+    public PostController(PostRepository postsDao, UserRepository usersDao) {
         this.postsDao = postsDao;
+        this.usersDao = usersDao;
     }
-
-
-//    is this right?
-//    private UserRepository usersDao;
-//
-//    public PostController(UserRepository usersDao) {
-//        this.usersDao = usersDao;
-//    }
+    
 
 
     //confused
@@ -67,10 +64,11 @@ public class PostController {
     }
 
 
+//    this leads to the create html
     @GetMapping("/posts/create")
-    @ResponseBody
+//    @ResponseBody
     public String create() {
-        return "view the form for creating a post";
+        return "posts/create";
     }
 
 
@@ -78,7 +76,9 @@ public class PostController {
 //    connect to the first one but differently?
     @PostMapping("/posts/create")
     @ResponseBody
-    public String insert() {
+    public String insert(@RequestParam String title, @RequestParam String body) {
+//        User user = usersDao.getOne();
+//        Post post = new Post
         return "create a new post";
     }
 

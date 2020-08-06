@@ -71,7 +71,10 @@ public class User {
         this.password = password;
     }
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
+//    allows me to propagate changes - multiple cascades being done
+//    if i delete a user then all posts are deleted also
+//    mapped by is he name of the FK property???
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "author")
     private List<Post> posts;
 
 }

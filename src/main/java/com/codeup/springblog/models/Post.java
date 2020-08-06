@@ -17,14 +17,15 @@ public class Post {
     private String body;
 
 
-//default constructor
+    //default constructor
     public Post() {
     }
 
-    public Post(long id, String title, String body) {
+    public Post(long id, String title, String body, User author) {
         this.id = id;
         this.title = title;
         this.body = body;
+        this.author = author;
     }
 
     public long getId() {
@@ -51,11 +52,20 @@ public class Post {
         this.body = body;
     }
 
-    @OneToOne
-    private User username;
-
     @ManyToOne
-//    @JoinColumn (name = "user_id")
-    private Post post;
+//    @JoinColumn (name = "author_id")
+//    private User author;
+//
+//    public User getAuthor() {
+////        return author;
+////    }
+//
+////        public User setAuthor (String author){
+////        this.author = author;
+////    }
+//
+
+
+    }
 
 }
