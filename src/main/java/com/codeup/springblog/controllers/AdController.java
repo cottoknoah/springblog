@@ -51,4 +51,11 @@ public class AdController {
         return "redirect:/ads";
     }
 
+//  does this work? check
+    @GetMapping("/ads/test")
+    @ResponseBody
+    public String getTestAd() {
+        return adsDao.findByTitle("Biodex").toString();
+    }
+
 }

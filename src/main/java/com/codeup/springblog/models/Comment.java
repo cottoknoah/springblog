@@ -1,19 +1,50 @@
 package com.codeup.springblog.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name="comments")
+@Table(name = "comments")
 public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private long id;
 
+    @Column
+    private String content;
 
     @ManyToOne
-    @JoinColumn(name ="ad_id")
+    @JoinColumn (name = "ad_id")
+    @JsonBackReference
+    private Ad parentAd;
 
+//    default constructor
+    public Comment() { }
 
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public Ad getParentAd() {
+        return parentAd;
+    }
+
+    public void setParentAd(Ad parentAd) {
+        this.parentAd = parentAd;
+    }
 }

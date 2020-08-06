@@ -16,9 +16,14 @@ public class Post {
     @Column(columnDefinition = "TEXT NOT NULL")
     private String body;
 
-
     //default constructor
-    public Post() {
+    public Post() {}
+
+//   is two enough?
+    public Post(long id, String title, String body) {
+        this.id = id;
+        this.title = title;
+        this.body = body;
     }
 
     public Post(long id, String title, String body, User author) {
@@ -53,19 +58,15 @@ public class Post {
     }
 
     @ManyToOne
-//    @JoinColumn (name = "author_id")
-//    private User author;
-//
-//    public User getAuthor() {
-////        return author;
-////    }
-//
-////        public User setAuthor (String author){
-////        this.author = author;
-////    }
-//
+    @JoinColumn(name = "author_id")
+    private User author;
 
+    public User getAuthor() {
+        return author;
+    }
 
+    public void setAuthor(User author){
+        this.author = author;
     }
 
 }
