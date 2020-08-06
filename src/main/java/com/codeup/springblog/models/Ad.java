@@ -1,7 +1,9 @@
 package com.codeup.springblog.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
-import java.awt.*;
+import java.util.List;
 
 @Entity
 @Table(name="ad", schema="spring_db")
@@ -9,6 +11,7 @@ public class Ad {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column(columnDefinition = "INT(11) UNSIGNED NOT NULL" )
     private long id;
 
 
@@ -18,11 +21,21 @@ public class Ad {
     @Column(columnDefinition = "TEXT NOT NULL")
     private String description;
 
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "parentAd")
-//    private List<Comment> comments;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "parentAd")
+    @JsonManagedReference
+    private List<Comment> comments;
 
-//example
-//    @Column(name = "password", updatable = false, insertable = false)
+
+//    the cascade type could delete everything so be weary!
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name="ad_tag",
+            joinColumns={@JoinColumn(name="ad_id")},
+            inverseJoinColumns={@JoinColumn(name="tag_id")}
+    )
+
+    @JsonManagedReference
+    private List<Tag> tags;
 
     public Ad() { }
 
@@ -60,4 +73,30 @@ public class Ad {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
+    }
+
+    @Override
+    public String toString() {
+        return "Ad{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
+
 }
