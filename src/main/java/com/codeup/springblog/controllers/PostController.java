@@ -2,6 +2,7 @@ package com.codeup.springblog.controllers;
 
 import com.codeup.springblog.models.Post;
 import com.codeup.springblog.repositories.PostRepository;
+import com.codeup.springblog.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,15 @@ public class PostController {
     public PostController(PostRepository postsDao) {
         this.postsDao = postsDao;
     }
+
+
+//    is this right?
+//    private UserRepository usersDao;
+//
+//    public PostController(UserRepository usersDao) {
+//        this.usersDao = usersDao;
+//    }
+
 
     //confused
     @GetMapping("/posts")

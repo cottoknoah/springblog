@@ -12,14 +12,14 @@ public class Ad {
     private long id;
 
 
-    @Column(length = 50, nullable = false, unique = true)
+    @Column(length = 240, nullable = false, unique = true)
     private String title;
 
     @Column(columnDefinition = "TEXT NOT NULL")
     private String description;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "parentAd")
-    private List<Comment> comments;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "parentAd")
+//    private List<Comment> comments;
 
 //example
 //    @Column(name = "password", updatable = false, insertable = false)

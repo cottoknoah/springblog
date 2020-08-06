@@ -8,21 +8,20 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 
 
     // derived queries using the JPA query builder...
-    Ad findByTitle(String title);
-    Ad findFirstByOrderByTitleAsc();
+    Post findByTitle(String title);
+    Post findFirstByOrderByTitleAsc();
 
-    // custom examples using the query annotation
-    // examples using JPQL / HQL
-    @Query("from Ad a where a.id like ?1")
-    Ad getAdById(long id);
+//    // custom examples using the query annotation
+//    // examples using JPQL / HQL
+//    @Query("from Ad a where a.id like ?1")
+//    Ad getAdById(long id);
+//
+//    @Query("select title from Ad where LENGTH(title) < 10")
+//    List<String> getAdsOfCertainTitleLength();
+//
+//    // using a native query
+//    @Query(nativeQuery = true, value = "SELECT title FROM ads WHERE LENGTH(title) < 10")
+//    List<String> getAdsOfCertainTitleLengthNative();
 
-    @Query("select title from Ad where LENGTH(title) < 10")
-    List<String> getAdsOfCertainTitleLength();
-
-    // using a native query
-    @Query(nativeQuery = true, value = "SELECT title FROM ads WHERE LENGTH(title) < 10")
-    List<String> getAdsOfCertainTitleLengthNative();
-
-}
 
 }
