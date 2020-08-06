@@ -1,6 +1,7 @@
 package com.codeup.springblog.models;
 
 import javax.persistence.*;
+import java.awt.*;
 
 @Entity
 @Table(name="ad", schema="spring_db")
@@ -16,6 +17,10 @@ public class Ad {
 
     @Column(columnDefinition = "TEXT NOT NULL")
     private String description;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "parentAd")
+    private List<Comment> comments;
+
 //example
 //    @Column(name = "password", updatable = false, insertable = false)
 

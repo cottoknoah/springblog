@@ -4,10 +4,7 @@ import com.codeup.springblog.models.Post;
 import com.codeup.springblog.repositories.PostRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +15,7 @@ public class PostController {
     // dependency injection
     //    instance field / instance property
     protected final PostRepository postsDao;
-
+    //constructor for the above
     public PostController(PostRepository postsDao) {
         this.postsDao = postsDao;
     }
@@ -76,20 +73,53 @@ public class PostController {
     }
 
 
-    @GetMapping("posts/delete/{id}")
+    @GetMapping("posts/{id}/delete")
     public String delete(@PathVariable long id){
-        Post deletedPost = new Post(id);
+//        Post deletedPost = postsDao.getOne(id);
+        postsDao.deleteById(id);
+        return "redirect:/posts";
     }
 
-    @GetMapping("/posts/edit/{id}")
-    @ResponseBody
-    public String edit(@PathVariable long id, Model model) {
-        Post editedPost = new Post(id, "Test Edit", "Hello Edit!");
-        model.addAttribute("title", editedPost.getTitle());
-        model.addAttribute("body", editedPost.getBody());
-        return "redirect:/posts/edit";
+//    this was mine, doesn't work - why?
+//    @GetMapping("/posts/edit/{id}")
+//    @ResponseBody
+//    public String edit(@PathVariable long id, Model model) {
+//        Post editedPost = new Post(id, "Test Edit", "Hello Edit!");
+//        model.addAttribute("title", editedPost.getTitle());
+//        model.addAttribute("body", editedPost.getBody());
+//        return "redirect:/posts/edit";
 //        where do i go once its edited? back to posts? or show the same one?
+//    }
+
+    @GetMapping("/posts/{id}/edit")
+    public String editForm(@PathVariable long id, Model model) {
+        model.addAttribute("post", postsDao.getOne(id));
+        return "posts/edit";
     }
+
+    @PostMapping("/posts/{id}/edit")
+    public String update(@PathVariable long id,
+                         @RequestParam String title,
+                         @RequestParam String body) {
+        // update our database with the latest title and body form the edit form
+        // get the post from the db to edit
+        Post postToEdit = postsDao.getOne(id);
+
+        // set the postToEdit title and body with values/parameters from the request
+
+        postToEdit.setTitle(title);
+
+        postToEdit.setBody(body);
+
+        // save the changes in the database
+        postsDao.save(postToEdit);
+
+        // redirect show page for the given post
+        return "redirect:/posts/" + id;
+    }
+
+
+
 
 
 
