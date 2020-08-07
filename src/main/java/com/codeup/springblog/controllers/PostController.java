@@ -1,5 +1,6 @@
 package com.codeup.springblog.controllers;
 
+import com.codeup.springblog.models.Ad;
 import com.codeup.springblog.models.Post;
 import com.codeup.springblog.models.User;
 import com.codeup.springblog.repositories.PostRepository;
@@ -97,7 +98,22 @@ public class PostController {
         return "redirect:/posts/" + id;
     }
 
-    ////    show post w/ id title or body ?
+    //this gets the create info from this url pattern
+    @GetMapping("posts/create")
+    public String showCreateForm(Model model){
+//        instantiating a new (ad) object
+        model.addAttribute("ad", new Post());
+        return "posts/create";
+    }
+    // returns the saved ad object and posts it to view all ads
+    @PostMapping("posts/create")
+    public String createAd(@ModelAttribute Post post) {
+        postsDao.save(post);
+        return "redirect:/posts/view";
+    }
+
+
+        ////    show post w/ id title or body ?
 ////    do I addAttributes here?
 //    @GetMapping("/posts/{id}/{title}/{body}")
 //    @ResponseBody

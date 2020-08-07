@@ -5,9 +5,7 @@ import com.codeup.springblog.repositories.AdRepository;
 import com.codeup.springblog.models.Ad;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -39,7 +37,7 @@ public class AdController {
     @GetMapping("/ads/view")
     public String getAdsIndex(Model model) {
         model.addAttribute("ads", adsDao.findAll());
-        return "ads/index";
+        return "ads/ads_index";
     }
 
     @GetMapping("/ads/save")
@@ -57,5 +55,21 @@ public class AdController {
     public String getTestAd() {
         return adsDao.findByTitle("Biodex").toString();
     }
+
+
+//this gets the create info from this url pattern
+    @GetMapping("ads/create")
+    public String showCreateForm(Model model){
+//        instantiating a new (ad) object
+        model.addAttribute("ad", new Ad());
+        return "ads/create";
+    }
+ // returns the saved ad object and posts it to view all ads
+    @PostMapping("ads/create")
+    public String createAd(@ModelAttribute Ad ad){
+        adsDao.save(ad);
+        return "redirect:/ads/view";
+    }
+
 
 }
