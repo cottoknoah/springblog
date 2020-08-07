@@ -100,16 +100,18 @@ public class PostController {
 
     //this gets the create info from this url pattern
     @GetMapping("posts/create")
-    public String showCreateForm(Model model){
+    public String showPostForm(Model model){
 //        instantiating a new (ad) object
         model.addAttribute("ad", new Post());
         return "posts/create";
     }
-    // returns the saved ad object and posts it to view all ads
+    // returns the saved post object and posts it to view all posts
     @PostMapping("posts/create")
-    public String createAd(@ModelAttribute Post post) {
+    public String createPost(@ModelAttribute Post post) {
+        User user =  usersDao.getOne(1L);
+        post.setAuthor(user);
         postsDao.save(post);
-        return "redirect:/posts/view";
+        return "redirect:/posts";
     }
 
 
