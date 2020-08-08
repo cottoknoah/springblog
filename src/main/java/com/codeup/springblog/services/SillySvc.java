@@ -8,28 +8,31 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class SillySvc {
-
+    //dependency injection
     private AdRepository adsDao;
     private UserRepository userDao;
 
-    public SillySvc(AdRepository adsDao){
+    //    constructor
+    public SillySvc(AdRepository adsDao, UserRepository userDao) {
         this.adsDao = adsDao;
+        this.userDao = userDao;
     }
 
-    public int totalAdCharactersForUsers(){
+    //method to grab length of ad description and username
+    public int totalPostCharacters() {
 //        Java object instead of ArrayList
         Iterable<Ad> ads = adsDao.findAll();
         Iterable<User> users = userDao.findAll();
+//        bucket
         int total = 0;
-
-        for(Ad ad : ads){
+//        looping Ads and adding/assigning to total variable
+        for (Ad ad : ads) {
             total += ad.getDescription().length();
         }
-        for(User user : users){
+        for (User user : users) {
             total += user.getUsername().length();
         }
         return total;
     }
-
 
 }

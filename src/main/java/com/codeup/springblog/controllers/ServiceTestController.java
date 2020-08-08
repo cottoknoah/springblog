@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class ServiceTestController {
     private GreetingSvc greetingSvc;
-    private sillySvc sillySvc;
+    private SillySvc sillySvc;
     private EmailService emailService;
     private PostRepository postDao;
 
@@ -36,7 +36,7 @@ public class ServiceTestController {
     @GetMapping("/silly")
     @ResponseBody
     public int totalLength(){
-        return sillySvc.totalAdCharacters();
+        return sillySvc.totalPostCharacters();
     }
 
     @GetMapping("/morning/{name)")

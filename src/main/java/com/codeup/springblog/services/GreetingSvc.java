@@ -9,8 +9,9 @@ public class GreetingSvc {
         return "Good Morning " + name + "!";
     }
 
-    public String goodAfternoon(String name){
+    public String goodAfternoon(String name) {
         return "Good Afternoon " + name + "!";
+
     }
 
     public String goodEvening(String name){
