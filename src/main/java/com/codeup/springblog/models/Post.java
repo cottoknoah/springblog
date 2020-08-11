@@ -1,6 +1,7 @@
 package com.codeup.springblog.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="posts")
@@ -15,6 +16,8 @@ public class Post {
 
     @Column(columnDefinition = "TEXT NOT NULL")
     private String body;
+
+    private List<Tag> tags;
 
     //default constructor
     public Post() {}
@@ -67,6 +70,21 @@ public class Post {
 
     public void setAuthor(User author){
         this.author = author;
+    }
+
+    @ManyToMany
+    @JoinTable(
+            name = "post_tag",
+            joinColumns = {@JoinColumn(name = "post_id")},
+            inverseJoinColumns = {@JoinColumn(name = "tag_id")}
+    )
+
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
     }
 
 }
