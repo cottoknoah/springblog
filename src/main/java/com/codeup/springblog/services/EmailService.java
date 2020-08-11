@@ -28,6 +28,7 @@ public class EmailService {
         try{
             this.emailSender.send(msg);
         } catch(MailException ex){
+        //log on here...?
             System.out.println(ex.getMessage());
         }
 

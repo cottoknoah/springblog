@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
+//Post type of entity we want to crud, long is the reference type of primary key
 public interface PostRepository extends JpaRepository<Post, Long> {
 
 
