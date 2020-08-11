@@ -16,7 +16,8 @@ public interface AdRepository extends JpaRepository<Ad, Long> {
 
     // custom examples using the query annotation
     // examples using JPQL / HQL
-    @Query("from Ad a where a.id like ?1")
+    //had to change this to work with '=' ??
+    @Query("from Ad a where a.id = ?1")
     Ad getAdById(long id);
 
     @Query("select title from Ad where LENGTH(title) < 10")
