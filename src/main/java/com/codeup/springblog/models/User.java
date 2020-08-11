@@ -36,6 +36,13 @@ public class User {
         this.email =  email;
         this.password = password;
     }
+//from the security lesson
+    public User(User copy) {
+        id = copy.id; // This line is SUPER important! Many things won't work if it's absent
+        email = copy.email;
+        username = copy.username;
+        password = copy.password;
+    }
 
     public long getId() {
         return id;
@@ -69,6 +76,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
     }
 
 //    allows me to propagate changes - multiple cascades being done
