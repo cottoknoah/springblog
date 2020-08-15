@@ -15,7 +15,7 @@ public interface AdRepository extends JpaRepository<Ad, Long> {
     Ad findFirstByOrderByTitleAsc();
 
     // custom examples using the query annotation
-    // examples using JPQL / HQL
+    // examples using JPQL & HQL
     //had to change this to work with '=' ??
     @Query("from Ad a where a.id = ?1")
     Ad getAdById(long id);
