@@ -22,7 +22,6 @@ public class Post {
     //default constructor
     public Post() {}
 
-//   is two enough?
     public Post(long id, String title, String body) {
         this.id = id;
         this.title = title;

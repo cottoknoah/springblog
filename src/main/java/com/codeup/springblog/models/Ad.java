@@ -11,7 +11,6 @@ public class Ad {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(columnDefinition = "INT(11) UNSIGNED NOT NULL" )
     private long id;
 
 

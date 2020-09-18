@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en"> lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 <!--whats this do?-->
 <head th:include="partials/head :: header-links">
 
@@ -8,6 +8,7 @@
 </head>
 <body>
 
+<!--why doesn't this work? is it the naming convention-->
 <div sec:authorize="isAuthenticated()">
     This content is only shown to authenticated users.
 
