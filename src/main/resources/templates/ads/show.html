@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:include="partials/head :: head">
+    <title>Show Ads</title>
+</head>
+<body>
+
+<nav th:replace="partials/navbar :: navbar"></nav>
+<div class="container p-5 border-left" style="margin-top: -5%;">
+    <a class="text-black" style="text-decoration: none; color:black;" th:href="@{/ads}">back</a>
+    <hr>
+
+    <p style="font-weight: lighter">author: <span th:text="${ad.getParentUser().getEmail()}"></span></p>
+    <h2 th:text="${ad.title}"></h2>
+    <p th:text="${ad.ad}"></p>
+    <hr>
+
+    <!--    COMMENTS    -->
+    <button style="border-left: 4px solid orange;" class="btn btn-dark" type="button" data-toggle="collapse"
+            data-target="#comments"
+            aria-expanded="false" aria-controls="collapseExample">
+        view comments
+    </button>
+
+
+    <!-- ADD COMMENT -->
+    <!-- Button trigger modal -->
+    <button style="border-left: 4px solid orange;" type="button" class="btn btn-dark float-right" data-toggle="modal"
+            data-target="#exampleModalCenter">
+        Add comment
+    </button>
+
+    <!-- ADD COMMENT MODAL -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+
+                    <form th:action="@{/ads/show/{id}/comment(id=${ad.id})}" th:method="ad" class="p-1">
+                        <div class="form-group">
+                            <label for="createComment"></label>
+                            <textarea class="form-control" id="createComment" name="createComment"></textarea>
+                        </div>
+                        <button class="bg-dark text-white" style="border-left: 4px solid orange; font-weight: lighter;"
+                                type="submit">comment
+                        </button>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button style="border-left: 4px solid orange;" type="button" class="btn btn-secondary"
+                            data-dismiss="modal">Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--    LOOP DISPLAY COMMENTS    -->
+    <div class="collapse" id="comments">
+        <div class="card card-body" th:each="comment : ${comments}">
+            <p th:text="${comment.content}"></p>
+            <p style="font-weight: lighter;">
+                ~ <span style="font-weight: lighter;"
+                        th:text="${comment.getParentPost().getParentUser().getEmail()}"></span>
+            </p>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="d-inline">
+        <!--    EDIT BTN    -->
+        <button class="d-inline bg-secondary text-white" style="border-left: 2px solid orange; width:6em;"><a
+                style="color: white;" th:href="@{/ads/edit/{id}(id=${id})}"
+                th:value="${id}">Edit</a></button>
+
+        <!--    DELETE BTN    -->
+        <form class="d-inline ml-3" action="/ads/show/${id}" method="post" style="width:6em;">
+            <input type="hidden" th:value="${id}" name="deleteBtn">
+            <button class="bg-secondary text-white" style="border-left: 2px solid orange; width:6em;" type="submit"
+                    onClick="return confirm('sure?')">
+                Delete
+            </button>
+        </form>
+    </div>
+
+
+</div>
+<footer th:replace="partials/footer :: footer"></footer>
+
+</body>
+</html>
