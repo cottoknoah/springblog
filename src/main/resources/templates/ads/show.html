@@ -10,7 +10,7 @@
     <a class="text-black" style="text-decoration: none; color:black;" th:href="@{/ads}">back</a>
     <hr>
 
-    <p style="font-weight: lighter">author: <span th:text="${ad.getParentUser().getEmail()}"></span></p>
+    <p style="font-weight: lighter">Author: <span th:text="${ad.getParentUser().getEmail()}"></span></p>
     <h2 th:text="${ad.title}"></h2>
     <p th:text="${ad.ad}"></p>
     <hr>
@@ -63,7 +63,7 @@
             <p th:text="${comment.content}"></p>
             <p style="font-weight: lighter;">
                 ~ <span style="font-weight: lighter;"
-                        th:text="${comment.getParentPost().getParentUser().getEmail()}"></span>
+                        th:text="${comment.getParentAd().getParentUser().getEmail()}"></span>
             </p>
         </div>
     </div>
