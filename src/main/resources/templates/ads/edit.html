@@ -7,7 +7,7 @@
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
 <div class="container p-5 border-left" style="margin-top: -5%;">
-    <h2>Edit ad</h2>
+    <h2>Edit Ad</h2>
     <hr>
     <!--    EDIT FORM   -->
     <form th:action="@{/ads/edit/{id}(id=${ad.id})}" th:method="ad" class="p-5" style="margin-top: -5%;">
@@ -19,7 +19,7 @@
             <label for="editPost">Edit Body</label>
             <textarea class="form-control" id="editPost" name="postEdit" th:text="${ad.ad}"></textarea>
         </div>
-        <button style="border-left: 4px solid orange;" class="bg-dark text-white" type="submit">Submit changes</button>
+        <button style="border-left: 4px solid orange;" class="bg-dark text-white" type="submit">Submit Changes</button>
         <a class="float-right" style="text-decoration: none; color:black" th:href="@{/ads/show/{id}(id=${ad.id})}" th:value="${ad.id}">back</a>
     </form>
 
