@@ -10,24 +10,6 @@
 <h1>Create Post</h1>
 
 
-
-    <!--    this method is without form model binding-->
-<!--<form th:action="@{'/posts/create'}" th:method="POST">-->
-<!--    <div>-->
-<!--        <label for="title">Title</label>-->
-<!--&lt;!&ndash;        <input type="text" name="title" id="title" th:value="${post.title}">&ndash;&gt;-->
-<!--        <input type="text" name="title" id="title">-->
-<!--    </div>-->
-
-<!--    <div>-->
-<!--        <label for="body">Body</label>-->
-<!--&lt;!&ndash;        <textarea name="body" id="body" th:text="${post.body}"></textarea>&ndash;&gt;-->
-<!--        <textarea name="body" id="body"></textarea>-->
-<!--    </div>-->
-    <!--    <button>Update Post</button>-->
-
-    <!--   **********  With form model binding **********-->
-
     <form th:action="@{'/posts/create'}" method="post" th:object="${post}">
         <div class="form-group">
             <label for="title">Title</label>
