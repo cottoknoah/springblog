@@ -2,7 +2,7 @@
 
 ## Practice repo incorporates: 
 
--Thymeleaf
--HTML
--Java
--Springboot framework.
+- Thymeleaf
+- HTML
+- Java
+- Springboot framewor
