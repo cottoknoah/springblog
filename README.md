@@ -1,4 +1,4 @@
-# Springblog repo
+# Springblog
 
 ## Practice repo incorporates: 
 
