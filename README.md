@@ -2,9 +2,12 @@
 
 ## Repo incorporates: 
 
-- Thymeleaf
+# Languages 
 - HTML
 - Java
 
 # Build 
 - Utilizes Springboot Framework
+
+# Template Engine 
+- Thymeleaf
