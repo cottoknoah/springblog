@@ -1,4 +1,4 @@
-# Springblog
+# Practice Springblog
 
 ## Repo incorporates: 
 
