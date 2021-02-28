@@ -7,7 +7,7 @@
 - Java
 
 # Build 
-- Utilizes Springboot Framework
+- Springboot Framework
 
 # Template Engine 
 - Thymeleaf
