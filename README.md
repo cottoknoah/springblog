@@ -1,8 +1,10 @@
 # Springblog
 
-## Practice repo incorporates: 
+## Repo incorporates: 
 
 - Thymeleaf
 - HTML
 - Java
-- Springboot framewor
+
+# Build 
+- Utilizes Springboot Framework
